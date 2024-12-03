@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bxe413d2phme5" path="res://icon.svg" id="1_btlml"]
 [ext_resource type="TileSet" uid="uid://hlt0qgfrfng3" path="res://new_tile_set.tres" id="1_eb2ni"]
-[ext_resource type="Script" path="res://scripts/CharacterBody2d.cs" id="1_nm4u5"]
+[ext_resource type="Script" path="res://scripts/CharacterBody2d.cs" id="2_tfdu5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4tfi"]
 size = Vector2(64, 64)
@@ -25,7 +25,7 @@ tile_set = ExtResource("1_eb2ni")
 position = Vector2(-27, 91)
 scale = Vector2(0.921884, 0.834398)
 up_direction = Vector2(0, 1)
-script = ExtResource("1_nm4u5")
+script = ExtResource("2_tfdu5")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(543, 335)
