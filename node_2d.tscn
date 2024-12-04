@@ -1,11 +1,26 @@
-[gd_scene load_steps=7 format=4 uid="uid://u5j0wlunlavf"]
+[gd_scene load_steps=9 format=4 uid="uid://u5j0wlunlavf"]
 
-[ext_resource type="Texture2D" uid="uid://bxe413d2phme5" path="res://icon.svg" id="1_btlml"]
 [ext_resource type="TileSet" uid="uid://hlt0qgfrfng3" path="res://new_tile_set.tres" id="1_eb2ni"]
 [ext_resource type="Script" path="res://scripts/CharacterBody2d.cs" id="2_tfdu5"]
+[ext_resource type="Texture2D" uid="uid://dub6d6dppqiwr" path="res://spirets/Sprite-0001.png" id="4_ak75r"]
+[ext_resource type="Texture2D" uid="uid://c67qs22curc0q" path="res://spirets/Sprite-0002.png" id="5_rr61e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4tfi"]
-size = Vector2(64, 64)
+size = Vector2(64, 78.169)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qaft5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ak75r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rr61e")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_usjw6"]
 
@@ -27,13 +42,9 @@ scale = Vector2(0.921884, 0.834398)
 up_direction = Vector2(0, 1)
 script = ExtResource("2_tfdu5")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(543, 335)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_btlml")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(543, 335)
+position = Vector2(543, 327.915)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_m4tfi")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
@@ -41,6 +52,13 @@ position = Vector2(632.401, 322.388)
 scale = Vector2(0.917556, 0.972381)
 position_smoothing_enabled = true
 metadata/PlayerPath = NodePath("..")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(544.537, 327.215)
+scale = Vector2(0.160095, 0.142102)
+sprite_frames = SubResource("SpriteFrames_qaft5")
+animation = &"walk"
+frame = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(568, -63)
