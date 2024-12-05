@@ -8,10 +8,15 @@ public partial class CharacterBody2d : CharacterBody2D
 	private Vector2 velocity = Vector2.Zero;      // Вектор скорости
   
 	private AnimatedSprite2D _animationPlayer;
+	private HP hp;
   
 	public override void _Ready()
 	{
 		_animationPlayer = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		
+		hp = new HP(100, 0);
+		
+		GD.Print("Текущее здоровье игрока: " + hp.GetCurrentHP());
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -36,6 +41,18 @@ public partial class CharacterBody2d : CharacterBody2D
 		else
 		{
 			_animationPlayer.Stop(); // Останавливаем анимацию, если не движемся
+		}
+		if (Input.IsActionPressed("ui_accept")) // Например, при нажатии кнопки "Enter"
+		{
+			hp.ModifyHP(-10); // Уменьшаем здоровье на 10
+			GD.Print("Текущее здоровье игрока: " + hp.GetCurrentHP());
+		}
+
+		// Пример восстановления здоровья
+		if (Input.IsActionPressed("ui_cancel")) // Например, при нажатии кнопки "Escape"
+		{
+			hp.Heal(5); // Восстанавливаем здоровье на 5
+			GD.Print("Текущее здоровье игрока: " + hp.GetCurrentHP());
 		}
 
 		// Обновляем скорость и применяем движение с учетом коллизий
